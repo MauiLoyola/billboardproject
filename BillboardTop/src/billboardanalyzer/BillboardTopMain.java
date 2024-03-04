@@ -64,10 +64,13 @@ class BillboardTopMain {
 
 	/*
 	 * TO DO LIST
-	 * HitFinder:
-	 * 
-	 * WeekFinder:
+	 * Figure out OPENCSV to load songs more efficiently
 	 *
+	 * GUI:
+	 * Scale GUI to Resolution, the GUI is currently only scaled to laptop(1080p)
+	 * Change Boldness for Readability
+	 * Search By Artist or Song Name
+	 * Recolor GUI
 	 * 
 	 * Other:
 	 * Find most popular song of each year based on factors?? (consecutive weeks)
@@ -167,6 +170,7 @@ class BillboardTopMain {
 		int highIndex = records.size()-1;
 		songStats = new ArrayList<>();
 		//songs with quotations may appear within alphabetical order despite the fact that they need to be at the top
+		//might circumvent with searching for first non quotation character?
 
 		while(highIndex >= lowIndex) {
 			int mid = (highIndex + lowIndex)/2;
