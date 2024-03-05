@@ -10,6 +10,8 @@ import javax.swing.JComboBox;
 import java.awt.Font;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
+
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -21,6 +23,8 @@ import javax.swing.JToggleButton;
 import javax.swing.JScrollBar;
 import javax.swing.JFormattedTextField;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.border.EtchedBorder;
@@ -62,17 +66,21 @@ public class BillboardGUI extends JFrame {
 	public BillboardGUI() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 750, 500);
+		Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+		int ScreenHeight = (int) size.getHeight();
+		int ScreenWidth = (int) size.getWidth();
+		setBounds(100, 100, (int) (ScreenWidth * .50), (int) (ScreenHeight*.60)); //edit to scan resolution
 		contentPane = new JPanel();
 		contentPane.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		contentPane.setBackground(new Color(252, 250, 228));
-
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel_4 = new JLabel("Maui's Billboard Top 100 ");
 		lblNewLabel_4.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 24));
 		lblNewLabel_4.setBounds(157, 10, 385, 63);
+		//lblNewLabel_4.setBounds(157, 10, 385, 63);
 		contentPane.add(lblNewLabel_4);
 
 		JLabel lblNewLabel_4_1 = new JLabel("Search Engine");
@@ -98,9 +106,10 @@ public class BillboardGUI extends JFrame {
 					searchDate();
 					//starts method components to show Date Search GUI
 				} else if(comboBox_3.getSelectedIndex() == 2) {
+					searchName();
 					System.out.println("not yet implemented");
 					//would implement separate method for searching based on song names
-					return;
+					return; //remove when fully implemented
 				
 				}
 				//hides menu GUI
@@ -331,9 +340,14 @@ public class BillboardGUI extends JFrame {
 				}
 				
 		});
-	}//end SearchDate
+	}//end searchDate
 
+	public void searchName() {
+		//implement search based on songName
+	}
+	
 	public static void comboWeekFind(JComboBox cb, JComboBox cb1, JComboBox cb2) {
+		//comboWeekFind used in SearchDate
 		if(cb.getSelectedIndex() == 1) {	//edge case for year 1958
 			month = cb1.getSelectedIndex() + 7;//add 7 to index to equal august
 		} else {
@@ -356,7 +370,4 @@ public class BillboardGUI extends JFrame {
 		}//adds everything from main.getWeeks() to ComboBox2
 	}
 
-	public void searchName() {
-		//implement search based on songName
-	}
 }//end class
