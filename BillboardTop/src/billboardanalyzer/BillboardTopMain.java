@@ -47,7 +47,7 @@ class BillboardTopMain {
 		// TEST CASES
 		// May 27th 1978: two 18's
 		// June 19th 1971: two 30's 
-		// May 20th 1967: Quoted String Placement: 
+		// May 20th 1967: Quoted String Placement: 11 
 		/*
 		for(BillboardTopRecord record : records) {
 			if(record.getChartDate().equals("5/20/1967")) {
